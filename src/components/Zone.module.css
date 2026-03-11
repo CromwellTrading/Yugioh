@@ -1,0 +1,92 @@
+.zone {
+  background: rgba(10, 25, 45, 0.7);
+  border: 2px solid #2f4f6f;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+  aspect-ratio: 1 / 1.4;
+  width: 100%;
+  height: 100%;
+}
+
+.zone:hover {
+  border-color: #00f0ff;
+  box-shadow: 0 0 15px #00f0ff;
+  transform: scale(1.02);
+}
+
+.zone.selected {
+  border-color: #ffd966 !important;
+  box-shadow: 0 0 20px #ffd966 !important;
+}
+
+/* Colores por tipo */
+.monster { border-color: #4a9eff; }
+.spell { border-color: #3acf6b; }
+.trap { border-color: #ff5e7a; }
+.extra { border-color: #b77eff; }
+.deck { border-color: #ffd966; }
+.grave { border-color: #aaaaaa; }
+.field { border-color: #4ab0ff; }
+
+/* Icono para zonas vacías */
+.zone:not(.hasCard)::after {
+  content: "";
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.monster:not(.hasCard)::after {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%234a9eff"><path d="M12 2L2 7v10l10 5 10-5V7l-10-5zm0 2.5l6 3v7l-6 3-6-3v-7l6-3z"/></svg>');
+}
+.spell:not(.hasCard)::after {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%233acf6b"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/><circle cx="12" cy="12" r="5"/></svg>');
+}
+.trap:not(.hasCard)::after {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff5e7a"><path d="M12 2L2 7v10l10 5 10-5V7l-10-5zm0 2.5l6 3v7l-6 3-6-3v-7l6-3z"/><path d="M12 12l-3 3 3 3 3-3-3-3z"/></svg>');
+}
+.extra:not(.hasCard)::after {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23b77eff"><path d="M19 3H5v18h14V3zm-2 14H7v-2h10v2zm0-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>');
+}
+.deck:not(.hasCard)::after {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffd966"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>');
+}
+.grave:not(.hasCard)::after {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23aaaaaa"><path d="M19 7h-3V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H5v2h14V7zm-5 0h-4V5h4v2zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2v-8H6v8z"/></svg>');
+}
+.field:not(.hasCard)::after {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%234ab0ff"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>');
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+  transition: transform 0.2s;
+}
+
+.defense {
+  transform: rotate(90deg) scale(0.8);
+}
+
+.zone.hasCard:hover .card {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+.zone.hasCard:hover .defense {
+  transform: rotate(90deg) scale(0.9);
+}
