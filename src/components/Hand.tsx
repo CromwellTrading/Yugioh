@@ -4,10 +4,9 @@ import styles from './Hand.module.css';
 
 interface HandProps {
   cards: HandCard[];
-  title?: string;
 }
 
-export const Hand: React.FC<HandProps> = ({ cards, title }) => {
+export const Hand: React.FC<HandProps> = ({ cards }) => {
   return (
     <div className={styles.handContainer}>
       {cards.map((card, index) => (

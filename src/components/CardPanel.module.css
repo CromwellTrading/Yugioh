@@ -1,13 +1,14 @@
 .panel {
-  width: min(200px, 18vw);
+  width: min(180px, 18vw);
   background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(10px);
   border-right: 1px solid rgba(255, 255, 255, 0.15);
   display: flex;
   flex-direction: column;
-  padding: 1.5vh 1vw;
+  padding: 1vh 0.5vw;
   z-index: 20;
-  box-shadow: 4px 0 20px rgba(0,0,0,0.8);
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.8);
+  overflow-y: auto;
 }
 
 .imageWrapper {
@@ -16,7 +17,7 @@
   background: #111;
   border-radius: 8px;
   border: 2px solid #3a4a5a;
-  margin-bottom: 1.5vh;
+  margin-bottom: 1vh;
   overflow: hidden;
   box-shadow: 0 0 20px #000;
   transition: border 0.2s;
@@ -32,21 +33,22 @@
   background: rgba(20, 30, 40, 0.7);
   border: 1px solid #3a4a5a;
   border-radius: 8px;
-  padding: 1.2vh 1vw;
-  flex: 1;
+  padding: 0.8vh 0.5vw;
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 1vh;
+  gap: 0.5vh;
   color: #ddd;
-  font-size: clamp(0.7rem, 1.8vw, 0.9rem);
+  font-size: clamp(0.6rem, 1.5vw, 0.85rem);
+  margin-bottom: 1vh;
 }
 
 .title {
-  font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+  font-size: clamp(0.8rem, 2vw, 1rem);
   font-weight: 700;
   color: white;
   border-bottom: 1px solid #3a4a5a;
-  padding-bottom: 0.5vh;
+  padding-bottom: 0.3vh;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -57,13 +59,74 @@
   justify-content: space-between;
   color: #ffd966;
   font-weight: 600;
-  font-size: clamp(0.65rem, 1.6vw, 0.85rem);
+  font-size: clamp(0.6rem, 1.4vw, 0.8rem);
 }
 
 .desc {
-  font-size: clamp(0.65rem, 1.6vw, 0.85rem);
+  font-size: clamp(0.6rem, 1.4vw, 0.8rem);
   line-height: 1.3;
   color: #b0c4de;
   overflow-y: auto;
-  flex: 1;
+  max-height: 10vh;
+}
+
+/* Estilos para los controles dentro del panel */
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8vh;
+  margin-top: 1vh;
+  padding-top: 1vh;
+  border-top: 1px solid #3a4a5a;
+}
+
+.sliderGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3vh;
+  color: white;
+  font-size: clamp(0.6rem, 1.5vw, 0.8rem);
+}
+
+.sliderGroup label {
+  color: #b0c4de;
+  font-size: 0.7rem;
+}
+
+.sliderGroup input {
+  width: 100%;
+  height: 5px;
+  background: #2f4f6f;
+  -webkit-appearance: none;
+  border-radius: 5px;
+}
+
+.sliderGroup input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  background: #00f0ff;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 8px #00f0ff;
+}
+
+.sliderGroup span {
+  text-align: right;
+  color: #ffd966;
+  font-weight: 600;
+}
+
+.logArea {
+  color: #b0c4de;
+  font-size: clamp(0.6rem, 1.4vw, 0.8rem);
+  padding: 0.5vh 0.5vw;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  border: 1px solid #3a4a5a;
+  margin-top: 1vh;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

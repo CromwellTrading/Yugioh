@@ -2,31 +2,39 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5vw;
-  width: 100%;
-  min-height: 8vh;
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(4px);
-  border-radius: 40px;
-  margin: 0.3vh 0;
-  border: 1px dashed rgba(255,255,255,0.2);
-  flex-wrap: wrap;
-  flex-shrink: 0;
+  gap: -0.8vw;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  backdrop-filter: none;
 }
 
 .handSlot {
-  width: clamp(40px, 6vh, 70px);
-  height: clamp(56px, 8.4vh, 98px);
-  border: 2px dashed rgba(255,255,255,0.4);
+  width: clamp(40px, 8vh, 80px);
+  height: clamp(56px, 11.2vh, 112px);
+  border: 2px solid rgba(255, 255, 255, 0.6);
   border-radius: 6px;
-  background: rgba(255,255,255,0.05);
+  background: rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: -1.2vw;
+  transition: transform 0.2s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+}
+
+.handSlot:first-child {
+  margin-left: 0;
+}
+
+.handSlot:hover {
+  transform: translateY(-1.5vh) scale(1.1);
+  z-index: 100;
 }
 
 .hasCard {
-  border: 2px solid rgba(255,255,255,0.8);
+  border: 2px solid rgba(255, 255, 255, 0.9);
   background: transparent;
 }
 
@@ -36,5 +44,21 @@
   background-size: cover;
   background-position: center;
   border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+@media (orientation: landscape) {
+  .handSlot {
+    width: clamp(50px, 10vh, 100px);
+    height: clamp(70px, 14vh, 140px);
+    margin-left: -1.5vw;
+  }
+}
+
+@media (orientation: portrait) {
+  .handSlot {
+    width: clamp(35px, 7vh, 70px);
+    height: clamp(49px, 9.8vh, 98px);
+    margin-left: -0.8vw;
+  }
 }

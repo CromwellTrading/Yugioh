@@ -4,7 +4,7 @@ import styles from './PhaseIndicator.module.css';
 const phases = ['DP', 'SP', 'MP1', 'BP', 'MP2', 'EP'];
 
 export const PhaseIndicator: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState(2); // MP1
+  const [activeIndex, setActiveIndex] = useState(2);
 
   useEffect(() => {
     const interval = setInterval(() => {
